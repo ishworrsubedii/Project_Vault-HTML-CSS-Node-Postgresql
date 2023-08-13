@@ -4,14 +4,25 @@
     padding:0;
      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-.banner{
+.bc1{
+    width: 1340px;
+    height: 1000px;
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 64.8%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+}
+
+/* .banner{
     width: 100%;
     height:100vh;
-    background-image:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)),url('/Project Vault/public/images/background1.jpg');
-    background-size: cover;
+    background-image:linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)),url('');
+    background-size: cover  ;
     background-position: right;
-}
+} */
+
 .logo{
+    height: 30px;
     width: 160px;
     cursor: pointer;;
     
@@ -64,12 +75,16 @@
     width:100%;
 }
 .content{
-    width:100%;
+
+    width:30%;
     position:absolute;
-    top:50%;
+    top:40%;
+    left: 5%;
     transform:translateY(-50%);
     text-align:center;
     color:#000000;
+    background-image: url('/Project Vault/public/images/element_1.png');
+    background-size: 590px;
 }
 .content h1{
     font-size: 30px;
@@ -79,7 +94,8 @@
 .content p{
     margin:20px auto;
     font-weight:100;
-    line-height: 25px;
+    line-height: 35px;
+    font-style: italic;
 }
 button{
     width:200px;
@@ -114,3 +130,5 @@ button:hover span{
 button:hover{
     border:none;
 }
+
+
