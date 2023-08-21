@@ -1,20 +1,13 @@
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
+
 * {
   margin: 0;
   padding: 0;
   font-family: "Jost", sans-serif;
 }
+
 body {
   background-color: #f5f5f5;
-}
-
-.bc1 {
-  width: 1340px;
-  height: 1000px;
-  position: absolute;
-  top: 50%; /* Adjust as needed */
-  left: 64.8%; /* Adjust as needed */
-  transform: translate(-50%, -50%);
 }
 
 .logo {
@@ -41,10 +34,9 @@ body {
   position: relative;
 }
 
-.navbar ul li {
+.navbar ul li a {
   text-decoration: none;
-  color: #000000;
-  text-transform: uppercase;
+  color: #333;
 }
 
 .navbar ul li::after {
@@ -62,11 +54,6 @@ body {
   width: 100%;
 }
 
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
 .content {
   width: 30%;
   position: absolute;
@@ -78,34 +65,23 @@ body {
   background-image: url("/Project Vault/public/images/element_1.png");
   background-size: 590px;
 }
-.content h1 {
-  font-size: 30px;
-  margin-top: 300px;
-}
-.content p {
-  margin: 20px auto;
-  font-weight: 100;
-  line-height: 35px;
-  font-style: italic;
-}
-.gap {
-  gap: 100px;
-}
-button {
+
+.button {
   width: 200px;
   padding: 15px 0;
   text-align: center;
   margin: 20px 10px;
   border-radius: 25px;
   font-weight: bold;
-  border: 2px solid#000000;
+  border: 2px solid #000000;
   background: transparent;
   color: #000000;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
-span {
+
+.button span {
   background: #86f3f3;
   height: 100%;
   width: 0%;
@@ -117,48 +93,26 @@ span {
   transition: 0.5s;
 }
 
-.navbar ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
-.navbar ul li a:hover {
-  color: #000000;
-}
-/* ****************** */
-.boxes {
+.intro-div {
   display: flex;
-  justify-content: space-around;
-  margin: 50px auto;
+  justify-content: start;
 }
 
-
-/* *****************code for footer************* */
-.footer {
-  top: 200%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  height: 100px;
-  background-color: black;
-  color: white;
-  padding: 10px 0; /* Adjust padding as needed */
+.intro-img {
+  height: 80%;
 }
 
-.social-media-icon {
+.project-div {
   display: flex;
-  gap: 10px; /* Add gap between images */
+  justify-content: end;
+  align-items: center;
+}
+
+.project-img {
+  height: 80%;
 }
 
 .social-media-icon img {
   width: 20px;
   height: 20px;
-}
-
-.footer-text {
-  margin-top: 10px; /* Adjust margin as needed */
 }
