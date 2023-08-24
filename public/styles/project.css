@@ -128,7 +128,7 @@ span {
 /* **********Face Detection ui*************** */
 
 .face-det {
-  margin-top: 1100px;
+  margin-top: 400px;
 
   display: flex;
   justify-content: center;
@@ -143,7 +143,8 @@ span {
   justify-content: center;
 }
 .face-det-heading {
-    color: rgb(211, 28, 28);
+  margin-top: 100px;
+    color: rgb(0, 0, 0);
 position: absolute;
   align-items: start;
   z-index: 1;
@@ -158,45 +159,14 @@ position: absolute;
   border-radius: 60px;
   text-align: center;
   position: absolute;
-  top: 180%;
+  top: 100%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
   padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 212, 249, 0.1);
 }
-
-
-
-/* *****************code for footer************* */
-.footer {
-  top: 900%;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    height: 100px;
-    background-color: black;
-    color: white;
-    padding: 10px 0; /* Adjust padding as needed */
-}
-
-.social-media-icon {
-    display: flex;
-    gap: 10px; /* Add gap between images */
-}
-
-.social-media-icon img {
-    width: 20px;
-    height: 20px;
-}
-
-.footer-text {
-    margin-top: 10px; /* Adjust margin as needed */
-}
+/* ****************comments*************** */
 
 .feedback-page {
   display: flex;
@@ -350,4 +320,37 @@ text-align: right;  font-size: 16px;
 .register-text a {
   color: #007bff;
   text-decoration: none;
+}
+
+
+
+
+/* *****************code for footer************* */
+.footer {
+    top: 350%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    height: 100px;
+    background-color: black;
+    color: white;
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+.social-media-icon {
+    display: flex;
+    gap: 10px; /* Add gap between images */
+}
+
+.social-media-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-text {
+    margin-top: 10px; /* Adjust margin as needed */
 }
