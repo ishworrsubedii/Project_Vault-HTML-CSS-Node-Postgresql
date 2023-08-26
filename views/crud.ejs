@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            margin-left: 30px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: ro;
+            align-items: center;
+        }
+        input[type="text"],
+        textarea {
+            width: 200%;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            padding: 6px 12px; /* Adjust button size */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%; /* Set width to 100% */
+            text-align: center; /* Center the text in the button */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            border: 1px solid #17c9b1;
+            padding: 20px; /* Increase padding for more space */
+            background-color: #fff;
+            border-radius: 8px; /* Increase border radius */
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+            width: 150%;
+            height: 100%;
+            margin-bottom: 20px;
+            display: flex; /* Change display to flex */
+            flex-direction: column; /* Arrange elements in a column layout */
+            align-items: center; /* Center align items horizontally */
+        }
+        .message-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px; /* Decrease width for smaller message box */
+            height: 40px; /* Decrease height for smaller message box */
+            background-color: #86f3f3;
+            color: rgb(0, 0, 0);
+            border-radius: 50%;
+            font-size: 12px; /* Decrease font size */
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .comment-content {
+            flex: 1; /* Use flex to allow dynamic sizing */
+            width: 100%; /* Set width to 100% */
+        }
+        .full-name {
+            display: flex;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px; /* Increase font size */
+            margin-bottom: 5px; /* Add some space below the full name */
+        }
+        .message {
+            display: flex;
+            justify-content: center;
+            font-size: 14px; /* Decrease font size for the message */
+        }
+        .edit-delete {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%; /* Set width to 100% */
+        }
+        .edit-delete a,
+        .edit-delete button {
+            background-color: #86f3f3;
+            color: rgb(0, 0, 0);
+            padding: 6px 12px; /* Adjust button size */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+            width: 100%; /* Set width to 100% */
+            text-align: center; /* Center the text in the button */
+        }
+      
+    </style>
+    
+</head>
+
+<body>
+    <div class="all-con">
+
+    <ul>
+        <% for (let comment of comments) { %>
+            <li>
+                <div class="message-box"><%= comment.full_name[0] %></div>
+                <div class="comment-content">
+                    <div class="full-name"><%= comment.full_name %></div>
+                    <p class="message"><%= comment.message %></p>
+                </div>
+                <div class="edit-delete">
+                    <a href="/comments/<%= comment.id %>/edit">Edit</a>
+                    <button class="delete-button" data-comment-id="<%= comment.id %>">Delete</button>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+    <script>
+        // Add an event listener to all "Delete" buttons
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', handleDelete);
+        });
+
+        // Function to handle the delete action
+        async function handleDelete(event) {
+            const commentId = event.target.getAttribute('data-comment-id');
+
+            try {
+                const response = await fetch(`/comments/${commentId}`, {
+                    method: 'DELETE'
+                });
+
+                if (response.ok) {
+                    // If the deletion was successful, remove the comment element from the UI
+                    const commentElement = event.target.closest('li');
+                    commentElement.remove();
+                } else {
+                    // Handle error cases
+                    console.error('Failed to delete comment');
+                }
+            } catch (error) {
+                console.error('Error during deletion', error);
+            }
+        }
+    </script>
+</div>
+
+</body>
+</html>

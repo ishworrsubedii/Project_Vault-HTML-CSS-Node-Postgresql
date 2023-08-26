@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Comment</title>
+    <style>
+        body {
+            margin-top: 100px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            margin-top:100px px;
+        }
+        h1 {
+            margin: 0 0 20px;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button[type="submit"] {
+            background-color: #00ffff;
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Comment</h1>
+
+        <form action="/comments/<%= comment.id %>?_method=PUT" method="POST">
+            <label for="editName">Full Name:</label>
+            <input type="text" id="editName" name="editName" value="<%= comment.full_name %>">
+            
+            <label for="editMessage">Comment:</label>
+            <textarea id="editMessage" name="editMessage"><%= comment.message %></textarea>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>
