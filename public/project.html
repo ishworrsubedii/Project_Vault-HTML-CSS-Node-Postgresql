@@ -18,11 +18,14 @@
             <img src="images/Logo.png" class="logo">
 
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="project.html">Projects</a></li>
-                <li><a href="technology.html">Technology</a></li>
-                <li><a href="login.html">Log in</a></li>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="project.html">Projects</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="login.html">Log in</a></li>
+                </ul>
             </ul>
         </div>
     </div>
@@ -46,12 +49,17 @@
             
 
             <div class='image-load'>
+                <img src="/home/ishwor/Desktop/Sunway/5thSem/Web technologies/Projects/Project Vault/public/images/det.png" alt="">
+
 
 
             </div>
         </div>
 
     </div>
+    <div class="predbutton">    <button class="button-pred" style="margin-top: 30px;">Detect</button>
+    </div>
+
 
     <div>
         
@@ -61,7 +69,7 @@
 <div class="feedback-page" style="margin-top: 20px;">
     <div class="background-image">
         <div class="login-box">
-            <form id="register" action="/" method="POST">
+            <form id="register" action="/comments" method="POST">
                 <div>
                 <h3 style="font-size: 25px; margin-top: 25px;">Add Comment!</h3>
             </div>
@@ -73,6 +81,7 @@
             <div class="input-container">
                 <input type="text" required name="message" class="input-message" placeholder="Message">
             </div>
+            
             <button class="button primary" style="margin-top: 30px;">Post</button>
             <a href="/comments" class="button primary" style="margin-top: 10px;">See Comments</a>
 

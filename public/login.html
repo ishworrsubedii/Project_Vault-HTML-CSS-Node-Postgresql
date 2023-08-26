@@ -17,8 +17,9 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="project.html">Projects</a></li>
                 <li><a href="technology.html">Technology</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="login.html">Log in</a></li>
             </ul>
         </div>
@@ -46,15 +47,16 @@
                 <p style="margin-top: 50px; margin-bottom: 20px;">This page is password protected. If you are the
                     website admin,
                     <br> or have access to this page, please type your <br> credential below.
-                </p>
-                <div class="input-container">
-                    <input type="text" name="text" class="input-username" placeholder="Username">
-                </div>
-                <div class="input-container">
-                    <input type="password" name="password" class="input-password" placeholder="Password">
-                </div>
-                <button class="button primary" style="margin-top: 30px;">Login</button>
-                <p class="register-text">Don't have an account? <a href="signup.html">Register</a></p>
+                    <form action="login_process.php" method="post">
+                        <div class="input-container">
+                            <input type="text" name="username" class="input-username" placeholder="Username" required>
+                        </div>
+                        <div class="input-container">
+                            <input type="password" name="password" class="input-password" placeholder="Password" required>
+                        </div>
+                        <button type="submit" class="button primary" style="margin-top: 30px;">Login</button>
+                    </form>
+                    <p class="register-text">Don't have an account? <a href="signup.html">Register</a></p>
             </div>
         </div>
     </div>

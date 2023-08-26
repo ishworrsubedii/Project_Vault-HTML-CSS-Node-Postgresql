@@ -16,8 +16,9 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Me</a></li>
-                <li><a href="projects.html">Projects</a></li>
+                <li><a href="project.html">Projects</a></li>
                 <li><a href="technology.html">Technology</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="login.html">Log in</a></li>
             </ul>
         </div>
@@ -46,23 +47,23 @@
                     website admin,
                     <br> or have access to this page, please type your <br> credential below.
                 </p>
-                <div class="input-container">
-                    <input type="text" name="text" class="input-fullname" placeholder="Enter your full name" required>
-                </div>
-
-                <div class="input-container">
-                    <input type="text" name="text" class="input-email" placeholder="Enter your email"required >
-                </div>
-               
-                <div class="input-container">
-                    <input type="password" name="password" class="input-password" placeholder="Password" required>
-                </div>
-                <div class="input-container">
-                    <input type="password" name="password" class="input-reenterpassword" placeholder=" Re enter password" required>
-                </div>
-
-                <button class="button primary" style="margin-top: 30px;">Sign Up</button>
+                <form action="index.html" method="post">
+                    <div class="input-container">
+                        <input type="text" name="fullname" class="input-fullname" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" name="email" class="input-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="password" class="input-password" placeholder="Password" required>
+                    </div>
+                    <div class="input-container">
+                        <input type="password" name="reenterpassword" class="input-reenterpassword" placeholder="Re-enter password" required>
+                    </div>
+                    <button type="submit" class="button primary" style="margin-top: 30px;">Sign Up</button>
+                </form>
                 <p class="register-text">Already have an account? <a href="login.html">Login</a></p>
+            </div>
             </div>
         </div>
     </div>
