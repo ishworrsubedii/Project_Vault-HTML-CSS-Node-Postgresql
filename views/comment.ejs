@@ -1,0 +1,95 @@
+<!-- comments.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    <div class="comment-list" style="font-family: Arial, sans-serif;">
+        <% comments.forEach(comment => { %>
+            <div class="comment" style="border: 1px solid #ccc; padding: 10px; margin: 10px; background-color: #f5f5f5;">
+                <h3 class="name"><%= comment.full_name %></h3>
+                <div class="comment-content">
+                    <% if (comment.editing) { %>
+                        <form class="edit-form" action="/comments/<%= comment.id %>" method="POST">
+                            <input type="hidden" name="_method" value="PUT">
+                            <textarea name="message" rows="4" cols="50" style="width: 100%; padding: 5px;"><%= comment.message %></textarea>
+                            <div style="margin-top: 5px;">
+                                <button type="submit" style="background-color: #4caf50; color: white; border: none; padding: 5px 10px; cursor: pointer;">Update</button>
+                                <button type="button" class="cancel-button" style="background-color: #f44336; color: white; border: none; padding: 5px 10px; cursor: pointer;">Cancel</button>
+                            </div>
+                        </form>
+                    <% } else { %>
+                        <p class="message"><%= comment.message %></p>
+                    <% } %>
+                </div>
+                <div class="comment-options" style="margin-top: 5px;">
+                    <button class="options-button" style="background-color: #f5f5f5; border: none; cursor: pointer;">⋮</button>
+                    <div class="options-menu" style="display: none; background-color: #fff; border: 1px solid #ccc; position: absolute; top: 25px; right: 0;">
+                        <button class="edit-option" style="display: block; width: 100%; padding: 5px; border: none; background-color: transparent; cursor: pointer;">Edit Comment</button>
+                        <button class="delete-option" style="display: block; width: 100%; padding: 5px; border: none; background-color: transparent; cursor: pointer;">Delete</button>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <!-- ... (previous code) -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const editForms = document.querySelectorAll('.edit-form');
+        const cancelButtons = document.querySelectorAll('.cancel-button');
+        const optionsButtons = document.querySelectorAll('.options-button');
+        const editOptions = document.querySelectorAll('.edit-option');
+        const deleteOptions = document.querySelectorAll('.delete-option');
+
+        editForms.forEach((editForm, index) => {
+            const commentContent = editForm.parentElement.querySelector('.comment-content');
+            const optionsMenu = editForm.parentElement.querySelector('.options-menu');
+
+            cancelButtons[index].addEventListener('click', event => {
+                editForm.style.display = 'none';
+                commentContent.style.display = 'block';
+            });
+
+            optionsButtons[index].addEventListener('click', event => {
+                optionsMenu.style.display = 'block';
+            });
+
+            editOptions[index].addEventListener('click', event => {
+                optionsMenu.style.display = 'none';
+                commentContent.style.display = 'none';
+                editForm.style.display = 'block';
+            });
+
+            deleteOptions[index].addEventListener('click', event => {
+                optionsMenu.style.display = 'none';
+                
+                // Get the comment id from the data attribute
+                const commentId = deleteOptions[index].closest('.comment').dataset.commentId;
+
+                // Send an API request to delete the comment
+                fetch(`/comments/${commentId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result); // Display the response from the server
+                    // You can also update the UI to reflect the deleted comment
+                    // For example, remove the comment element from the DOM
+                    deleteOptions[index].closest('.comment').remove();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
