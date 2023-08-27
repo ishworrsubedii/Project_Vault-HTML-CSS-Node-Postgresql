@@ -44,7 +44,7 @@ Follow these steps to get started with Project Vault.
 ### Usage
 
 1. Run the application: `npm start`
-2. Open your web browser and navigate to `http://localhost:3000`.
+2. Open your web browser and navigate to `http://localhost:9000`.
 3. Create an account or log in to an existing account.
 4. Start adding and managing your sensitive information using the intuitive interface.
 
